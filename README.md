@@ -1,4 +1,7 @@
 # YANT
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Thomaash/yant.svg)](https://greenkeeper.io/)
+
 Yet Another New Tab
 
 ## Demo
