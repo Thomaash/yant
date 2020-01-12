@@ -1,9 +1,12 @@
 {
-  "extends": ["config:base"],
+  "extends": [
+    "config:base",
+    ":disableRateLimiting",
+    ":pinAllExceptPeerDependencies"
+  ],
 
   "masterIssue": true,
-  "prConcurrentLimit": 0,
-  "prHourlyLimit": 0,
+  "masterIssueAutoclose": true,
   "rebaseStalePrs": true,
   "reviewers": ["Thomaash"],
 
