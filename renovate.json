@@ -1,4 +1,11 @@
 {
   "extends": ["config:base"],
-  "rebaseStalePrs": true
+  "masterIssue": true,
+  "rebaseStalePrs": true,
+
+  "packageRules": [
+    { "packagePatterns": ["^@types/"], "groupName": "Declarations" },
+    { "packagePatterns": ["^@vue/"], "groupName": "Vue" },
+    { "packagePatterns": ["^eslint"], "groupName": "ESLint" }
+  ]
 }
