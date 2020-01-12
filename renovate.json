@@ -1,7 +1,9 @@
 {
   "extends": ["config:base"],
+
   "masterIssue": true,
   "rebaseStalePrs": true,
+  "reviewers": ["Thomaash"],
 
   "packageRules": [
     { "packagePatterns": ["\beslint\b"], "groupName": "ESLint" },
