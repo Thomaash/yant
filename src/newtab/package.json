@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint --no-fix",
+    "build": "vue-cli-service build && rsync --archive ../../ext/src/newtab/ ../../demo/",
     "fix": "vue-cli-service lint",
+    "lint": "vue-cli-service lint --no-fix",
+    "serve": "vue-cli-service serve",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit"
   },
