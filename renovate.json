@@ -4,8 +4,8 @@
   "rebaseStalePrs": true,
 
   "packageRules": [
-    { "packagePatterns": ["^@types/"], "groupName": "Declarations" },
-    { "packagePatterns": ["^@vue/"], "groupName": "Vue" },
-    { "packagePatterns": ["^eslint"], "groupName": "ESLint" }
+    { "packagePatterns": ["\beslint\b"], "groupName": "ESLint" },
+    { "packagePatterns": ["^(@vue/|vue\b)"], "groupName": "Vue" },
+    { "packagePatterns": ["^@types/"], "groupName": "Declarations" }
   ]
 }
