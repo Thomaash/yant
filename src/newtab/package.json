@@ -50,7 +50,7 @@
     "chai": "4.2.0",
     "css-loader": "3.4.2",
     "eslint": "5.16.0",
-    "eslint-plugin-vue": "5.2.3",
+    "eslint-plugin-vue": "6.1.2",
     "eslint_d": "8.0.0",
     "husky": "4.0.7",
     "stylus": "0.54.7",
