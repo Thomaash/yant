@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@types/chai": "4.2.8",
-    "@types/chrome": "0.0.93",
+    "@types/chrome": "0.0.94",
     "@types/mocha": "7.0.1",
     "@vue/cli-plugin-babel": "4.2.2",
     "@vue/cli-plugin-e2e-cypress": "4.2.2",
