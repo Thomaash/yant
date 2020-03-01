@@ -44,6 +44,7 @@ export default class DateOptions extends Vue {
   get config (): DateConfig {
     return widgetsModule.configs[this.widgetId] as DateConfig as DateConfig
   }
+
   setConfig (config: Partial<DateConfig>): void {
     widgetsModule.setConfig({
       id: this.widgetId,
@@ -57,6 +58,7 @@ export default class DateOptions extends Vue {
   get styling (): StylingConfig {
     return this.config.styling
   }
+
   set styling (v: StylingConfig) {
     this.setConfig({ styling: v })
   }
@@ -64,6 +66,7 @@ export default class DateOptions extends Vue {
   get formatString (): string {
     return this.config.formatString
   }
+
   set formatString (vRaw: string) {
     const v = vRaw || ' '
     this.setConfig({
@@ -71,6 +74,7 @@ export default class DateOptions extends Vue {
       updateRate: this.computeUpdateRate(v)
     })
   }
+
   get formatStringItems (): { text: string; value: string }[] {
     return [{
       text: 'Date and time',

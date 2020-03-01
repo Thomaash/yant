@@ -42,9 +42,11 @@ export default class ClockView extends Vue {
   created () {
     this.updater = new Updater(this.updateDate)
   }
+
   mounted () {
     this.resetTimeout()
   }
+
   beforeDestroy () {
     this.updater.stop()
   }
@@ -60,9 +62,11 @@ export default class ClockView extends Vue {
   get hours () {
     return this.date.getHours().toString().padStart(2, '0')
   }
+
   get minutes () {
     return this.date.getMinutes().toString().padStart(2, '0')
   }
+
   get seconds () {
     return this.date.getSeconds().toString().padStart(2, '0')
   }

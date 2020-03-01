@@ -35,6 +35,7 @@ export default class Color extends Vue {
   get color (): string {
     return this.value
   }
+
   set color (v: string) {
     this.input(v)
   }

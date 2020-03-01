@@ -10,7 +10,7 @@ interface Preprocessor<T> {
 }
 
 export function localStorageWrapper<T> (
-  key: string = 'LTM',
+  key = 'LTM',
   preprocessor: Preprocessor<T> = JSON,
   storage: StringStorage = localStorage
 ): GenericStorageWrapper<T, string> {

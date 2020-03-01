@@ -42,6 +42,7 @@ export default class CommonOptions extends Vue {
   get styling (): StylingConfig {
     return this.storeModule.styling
   }
+
   set styling (v: StylingConfig) {
     this.storeModule.setStyling(v)
   }
@@ -49,6 +50,7 @@ export default class CommonOptions extends Vue {
   get fadeIn (): boolean {
     return this.storeModule.fadeIn
   }
+
   set fadeIn (v: boolean) {
     this.storeModule.setFadeIn(v)
   }

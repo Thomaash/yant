@@ -17,13 +17,13 @@ module.exports = {
     // standard-like ts
     '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/member-delimiter-style': ['error', {
-      'multiline': {
-        'delimiter': 'none',
-        'requireLast': true
+      multiline: {
+        delimiter: 'none',
+        requireLast: true
       },
-      'singleline': {
-        'delimiter': 'semi',
-        'requireLast': false
+      singleline: {
+        delimiter: 'semi',
+        requireLast: false
       }
     }],
 
@@ -33,6 +33,7 @@ module.exports = {
 
     // custom
     'array-bracket-spacing': ['error', 'never'],
+    '@typescript-eslint/no-empty-function': 'off',
 
     // default
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',

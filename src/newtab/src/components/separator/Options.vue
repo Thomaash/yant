@@ -50,6 +50,7 @@ export default class SeparatorOptions extends Vue {
   get config (): SeparatorConfig {
     return widgetsModule.configs[this.widgetId] as SeparatorConfig
   }
+
   setConfig (config: Partial<SeparatorConfig>): void {
     widgetsModule.setConfig({
       id: this.widgetId,
@@ -63,9 +64,11 @@ export default class SeparatorOptions extends Vue {
   get styling (): StylingConfig {
     return this.config.styling
   }
+
   set styling (v: StylingConfig) {
     this.setConfig({ styling: v })
   }
+
   setStyling (styling: Partial<StylingConfig>): void {
     this.setConfig({
       styling: {
@@ -78,6 +81,7 @@ export default class SeparatorOptions extends Vue {
   get flexGrow (): number | undefined {
     return this.styling.flexGrow
   }
+
   set flexGrow (v: number | undefined) {
     this.setStyling({ flexGrow: v })
   }
@@ -85,6 +89,7 @@ export default class SeparatorOptions extends Vue {
   get minHeight (): number | undefined {
     return this.styling.minHeight
   }
+
   set minHeight (v: number | undefined) {
     this.setStyling({ minHeight: v })
   }

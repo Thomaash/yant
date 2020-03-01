@@ -342,6 +342,7 @@ export default class Styling extends Vue {
   get animationColors (): AnimationColors[] | undefined {
     return this.value.animationColors
   }
+
   set animationColors (v: AnimationColors[] | undefined) {
     this.emitStylingChange('animationColors', v)
   }
@@ -351,9 +352,11 @@ export default class Styling extends Vue {
       ? this.value.animationDuration / 1000
       : null
   }
+
   set animationDuration (v: number | null) {
     this.emitStylingChange('animationDuration', v != null ? v * 1000 : undefined)
   }
+
   get animationDurationMessage () {
     if (!this.value.animationDuration) {
       return ''
@@ -392,6 +395,7 @@ export default class Styling extends Vue {
   get animationStart (): number | undefined {
     return this.value.animationStart
   }
+
   set animationStart (v: number | undefined) {
     this.emitStylingChange('animationStart', v)
   }
@@ -423,6 +427,7 @@ export default class Styling extends Vue {
       }))
     }
   }
+
   get animationStepLabelFormat (): string {
     const duration = this.value.animationDuration
     if (duration == null) {
@@ -443,6 +448,7 @@ export default class Styling extends Vue {
   get fontStyle (): string | undefined {
     return this.value.fontStyle
   }
+
   set fontStyle (v: string | undefined) {
     this.emitStylingChange('fontStyle', v)
   }
@@ -450,6 +456,7 @@ export default class Styling extends Vue {
   get fontVariantCaps (): string | undefined {
     return this.value.fontVariantCaps
   }
+
   set fontVariantCaps (v: string | undefined) {
     this.emitStylingChange('fontVariantCaps', v)
   }
@@ -457,6 +464,7 @@ export default class Styling extends Vue {
   get fontFamily (): string | undefined {
     return this.value.fontFamily
   }
+
   set fontFamily (v: string | undefined) {
     this.emitStylingChange('fontFamily', v)
   }
@@ -464,6 +472,7 @@ export default class Styling extends Vue {
   get fontSize (): number | undefined {
     return this.value.fontSize
   }
+
   set fontSize (v: number | undefined) {
     this.emitStylingChange('fontSize', v)
   }
@@ -471,6 +480,7 @@ export default class Styling extends Vue {
   get fontScale (): number | undefined {
     return this.value.fontScale
   }
+
   set fontScale (v: number | undefined) {
     this.emitStylingChange('fontScale', v)
   }
@@ -478,6 +488,7 @@ export default class Styling extends Vue {
   get lineHeight (): number | undefined {
     return this.value.lineHeight
   }
+
   set lineHeight (v: number | undefined) {
     this.emitStylingChange('lineHeight', v)
   }
@@ -485,6 +496,7 @@ export default class Styling extends Vue {
   get fontWeight (): number | undefined {
     return this.value.fontWeight
   }
+
   set fontWeight (v: number | undefined) {
     this.emitStylingChange('fontWeight', v)
   }
@@ -492,6 +504,7 @@ export default class Styling extends Vue {
   get color (): string | undefined {
     return this.value.color
   }
+
   set color (v: string | undefined) {
     this.emitStylingChange('color', v)
   }
@@ -499,6 +512,7 @@ export default class Styling extends Vue {
   get backgroundColor (): string | undefined {
     return this.value.backgroundColor
   }
+
   set backgroundColor (v: string | undefined) {
     this.emitStylingChange('backgroundColor', v)
   }
@@ -509,6 +523,7 @@ export default class Styling extends Vue {
       ...this.dimensionsPadding
     ]
   }
+
   set dimensionsFull (v: (number | undefined)[]) {
     this.emitStylingChanges([
       { key: 'width', value: v[0] },
@@ -526,6 +541,7 @@ export default class Styling extends Vue {
       this.value.height
     ]
   }
+
   set dimensionsSize (v: (number | undefined)[]) {
     this.emitStylingChanges([
       { key: 'width', value: v[0] },
@@ -541,6 +557,7 @@ export default class Styling extends Vue {
       this.value.paddingLeft
     ]
   }
+
   set dimensionsPadding (v: (number | undefined)[]) {
     this.emitStylingChanges([
       { key: 'paddingTop', value: v[0] },
@@ -558,6 +575,7 @@ export default class Styling extends Vue {
       this.value.borderBottomLeftRadius
     ]
   }
+
   set borderRadiuses (v: (number | undefined)[]) {
     this.emitStylingChanges([
       { key: 'borderTopLeftRadius', value: v[0] },
@@ -570,6 +588,7 @@ export default class Styling extends Vue {
   emitStylingChange (key: string, value: any) {
     this.emitStylingChanges([{ key, value }])
   }
+
   @Emit('input')
   emitStylingChanges (changes: { key: string; value: any }[]): value {
     const styling: StylingConfig & { [key: string]: any } = {

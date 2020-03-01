@@ -12,7 +12,7 @@ export default class Planner {
   private interval: number | null = null
   private removeVisibilityChangeListener = (): void => {}
 
-  public constructor (precision: number = 1000) {
+  public constructor (precision = 1000) {
     this.precision = precision
   }
 
@@ -32,6 +32,7 @@ export default class Planner {
 
     this.resume()
   }
+
   private stop (): void {
     this.pause()
     this.removeVisibilityChangeListener()
@@ -63,6 +64,7 @@ export default class Planner {
       }
     }, this.precision)
   }
+
   private pause (): void {
     if (this.interval != null) {
       window.clearInterval(this.interval)
@@ -78,6 +80,7 @@ export default class Planner {
       }
     }
   }
+
   private planUnit (unit: Unit): void {
     const nextUnitIndex = this.queue.findIndex(({ timestamp }): boolean => timestamp < unit.timestamp)
     this.queue.splice(

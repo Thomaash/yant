@@ -24,9 +24,11 @@ export default class DateView extends Vue {
   created () {
     this.updater = new Updater(this.updateDate)
   }
+
   mounted () {
     this.resetTimeout()
   }
+
   beforeDestroy () {
     this.updater.stop()
   }

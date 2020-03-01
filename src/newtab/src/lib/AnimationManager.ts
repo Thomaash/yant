@@ -122,6 +122,7 @@ export default class AnimationManager {
       }, Date.now(), 5000)
     }
   }
+
   public stop (): void {
     this.cancelPlan()
 

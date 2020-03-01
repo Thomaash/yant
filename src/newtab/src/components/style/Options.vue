@@ -25,6 +25,7 @@ export default class StyleOptions extends Vue {
   get style (): string {
     return commonModule.style
   }
+
   set style (v: string) {
     commonModule.setStyle(v)
   }

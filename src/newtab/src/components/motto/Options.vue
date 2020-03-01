@@ -36,6 +36,7 @@ export default class MottoOptions extends Vue {
   get config (): MottoConfig {
     return widgetsModule.configs[this.widgetId] as MottoConfig
   }
+
   setConfig (config: Partial<MottoConfig>): void {
     widgetsModule.setConfig({
       id: this.widgetId,
@@ -49,6 +50,7 @@ export default class MottoOptions extends Vue {
   get styling (): StylingConfig {
     return this.config.styling
   }
+
   set styling (styling: StylingConfig) {
     this.setConfig({ styling })
   }
@@ -56,6 +58,7 @@ export default class MottoOptions extends Vue {
   get text (): string {
     return this.config.text
   }
+
   set text (text: string) {
     this.setConfig({ text })
   }

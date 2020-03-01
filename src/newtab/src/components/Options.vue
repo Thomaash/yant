@@ -117,7 +117,7 @@ interface DrawerItem {
   }
 })
 export default class Options extends Vue {
-  drawer: boolean = true
+  drawer = true
 
   get drawerItems (): DrawerItem[] {
     return [

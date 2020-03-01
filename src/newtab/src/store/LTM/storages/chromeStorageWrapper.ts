@@ -9,7 +9,7 @@ interface ChromeStorage {
 }
 
 export function chromeStorageWrapper<Outer, Inner> (
-  key: string = 'LTM',
+  key = 'LTM',
   storage: ChromeStorage = chrome.storage.sync,
   toInner?: (data: Outer) => Inner,
   toOuter?: (data: Inner) => Outer

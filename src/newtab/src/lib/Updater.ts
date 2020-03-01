@@ -73,6 +73,7 @@ export default class Updater {
       this.setTimeout()
     }, timestamp)
   }
+
   public start (getNextDate?: getNextDate): void {
     this.stop()
     if (getNextDate) {
@@ -80,6 +81,7 @@ export default class Updater {
     }
     this.setTimeout()
   }
+
   public stop (): void {
     this.clearTimeout()
   }

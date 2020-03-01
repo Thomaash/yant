@@ -76,6 +76,7 @@ export default class RootView extends Vue {
       return commonModule.styleAttr
     }
   }
+
   get customCSS (): string {
     return commonModule.style
   }
@@ -106,6 +107,7 @@ export default class RootView extends Vue {
   mounted () {
     this.setUpAnimation()
   }
+
   beforeDestroy () {
     if (this.animationManager) {
       this.animationManager.stop()

@@ -50,6 +50,7 @@ export default class SnowOptions extends Vue {
   get config (): SnowConfig {
     return widgetsModule.configs[this.widgetId] as SnowConfig
   }
+
   setConfig (v: Partial<SnowConfig>): void {
     widgetsModule.setConfig({
       id: this.widgetId,
@@ -63,6 +64,7 @@ export default class SnowOptions extends Vue {
   get amount (): number {
     return this.config.amount
   }
+
   set amount (v: number) {
     this.setConfig({
       amount: v
@@ -72,6 +74,7 @@ export default class SnowOptions extends Vue {
   get speed (): number {
     return this.config.speed
   }
+
   set speed (v: number) {
     this.setConfig({
       speed: v
@@ -81,6 +84,7 @@ export default class SnowOptions extends Vue {
   get symbols (): string {
     return this.config.symbols.join('')
   }
+
   set symbols (v: string) {
     this.setConfig({
       symbols: v && v.length

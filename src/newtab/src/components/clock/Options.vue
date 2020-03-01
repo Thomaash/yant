@@ -69,6 +69,7 @@ export default class ClockOptions extends Vue {
   get config (): ClockConfig {
     return widgetsModule.configs[this.widgetId] as ClockConfig
   }
+
   setConfig (config: Partial<ClockConfig>): void {
     widgetsModule.setConfig({
       id: this.widgetId,
@@ -82,6 +83,7 @@ export default class ClockOptions extends Vue {
   get styling (): StylingConfig {
     return this.config.styling
   }
+
   set styling (v: StylingConfig) {
     this.setConfig({ styling: v })
   }
@@ -89,6 +91,7 @@ export default class ClockOptions extends Vue {
   get separator (): string {
     return this.config.separator
   }
+
   set separator (v: string) {
     this.setConfig({ separator: v })
   }
@@ -96,6 +99,7 @@ export default class ClockOptions extends Vue {
   get showSeconds (): boolean {
     return this.config.showSeconds
   }
+
   set showSeconds (v: boolean) {
     this.setConfig({ showSeconds: v })
   }
@@ -103,6 +107,7 @@ export default class ClockOptions extends Vue {
   get dimSeconds (): boolean {
     return this.config.dimSeconds
   }
+
   set dimSeconds (v: boolean) {
     this.setConfig({ dimSeconds: v })
   }
@@ -110,6 +115,7 @@ export default class ClockOptions extends Vue {
   get dimSeparators (): boolean {
     return this.config.dimSeparators
   }
+
   set dimSeparators (v: boolean) {
     this.setConfig({ dimSeparators: v })
   }
