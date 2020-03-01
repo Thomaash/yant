@@ -36,7 +36,7 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'off',
 
     // default
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': [process.env.NODE_ENV === 'production' ? 'error' : 'off', { allow: ['warn', 'error'] }],
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   },
   overrides: [{
