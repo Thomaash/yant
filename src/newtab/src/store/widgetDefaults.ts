@@ -31,7 +31,7 @@ export const defaultWidgetConfigs: {
     styling: {
       fontScale: 2.5
     },
-    formatString: 'dddd, MMMM D, YYYY',
+    formatString: 'EEEE, MMMM do, YYYY',
     updateRate: DateUpdateRate.Days
   },
   'alternative.date-week': {
@@ -39,7 +39,7 @@ export const defaultWidgetConfigs: {
     styling: {
       fontScale: 2
     },
-    formatString: '[Week] W',
+    formatString: "'Week' w",
     updateRate: DateUpdateRate.Days
   },
   motto: {

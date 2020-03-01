@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import Updater, { next, getNextDate } from '@/lib/Updater'
-import formatDate from 'date-fns/format'
+import { formatDate } from '../../lib/formatDate'
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import { widgetsModule, DateConfig, DateUpdateRate } from '@/store'
 
@@ -42,7 +42,12 @@ export default class DateView extends Vue {
   }
 
   get textDate () {
-    return formatDate(this.date, this.config.formatString)
+    try {
+      return formatDate(this.date, this.config.formatString)
+    } catch (error) {
+      console.error(`Invalid date format: ${this.config.formatString}.`)
+      console.error(error)
+    }
   }
 
   @Watch('config.updateRate')

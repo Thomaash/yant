@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import Styling from '@/components/options/Styling.vue'
-import formatDate from 'date-fns/format'
+import { formatDate } from '../../lib/formatDate'
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import { widgetsModule, DateConfig, StylingConfig, DateUpdateRate } from '@/store'
 
@@ -77,134 +77,338 @@ export default class DateOptions extends Vue {
 
   get formatStringItems (): { text: string; value: string }[] {
     return [{
-      text: 'Date and time',
-      value: 'dddd, MMMM D, YYYY - HH:mm:ss'
+      text: 'Era',
+      value: 'G'
     }, {
-      text: 'Date',
-      value: 'dddd, MMMM D, YYYY'
+      text: 'Era',
+      value: 'GGGG'
     }, {
-      text: 'Date',
-      value: 'YYYY/MM/DD'
+      text: 'Era',
+      value: 'GGGGG'
     }, {
-      text: 'Date',
-      value: 'D. M. YYYY'
+      text: 'Calendar year',
+      value: 'y'
     }, {
-      text: 'Time',
-      value: 'H:mm'
+      text: 'Calendar year',
+      value: 'yo'
     }, {
-      text: 'Time',
-      value: 'HH:mm'
+      text: 'Calendar year',
+      value: 'yy'
     }, {
-      text: 'Time',
-      value: 'H:mm:ss'
+      text: 'Calendar year',
+      value: 'yyy'
     }, {
-      text: 'Time',
-      value: 'HH:mm:ss'
+      text: 'Calendar year',
+      value: 'yyyy'
     }, {
-      text: 'Week',
-      value: '[Week] W'
+      text: 'Calendar year',
+      value: 'yyyyy'
     }, {
-      text: 'Month',
-      value: 'M'
+      text: 'Local week-numbering year',
+      value: 'Y'
     }, {
-      text: 'Month',
-      value: 'Mo'
+      text: 'Local week-numbering year',
+      value: 'Yo'
     }, {
-      text: 'Month',
-      value: 'MM'
+      text: 'Local week-numbering year',
+      value: 'YY'
     }, {
-      text: 'Month',
-      value: 'MMM'
+      text: 'Local week-numbering year',
+      value: 'YYY'
     }, {
-      text: 'Month',
-      value: 'MMMM'
+      text: 'Local week-numbering year',
+      value: 'YYYY'
     }, {
-      text: 'Quarter',
+      text: 'Local week-numbering year',
+      value: 'YYYYY'
+    }, {
+      text: 'ISO week-numbering year',
+      value: 'R'
+    }, {
+      text: 'ISO week-numbering year',
+      value: 'RR'
+    }, {
+      text: 'ISO week-numbering year',
+      value: 'RRR'
+    }, {
+      text: 'ISO week-numbering year',
+      value: 'RRRR'
+    }, {
+      text: 'ISO week-numbering year',
+      value: 'RRRRR'
+    }, {
+      text: 'Extended year',
+      value: 'u'
+    }, {
+      text: 'Extended year',
+      value: 'uu'
+    }, {
+      text: 'Extended year',
+      value: 'uuu'
+    }, {
+      text: 'Extended year',
+      value: 'uuuu'
+    }, {
+      text: 'Extended year',
+      value: 'uuuuu'
+    }, {
+      text: 'Quarter (formatting)',
       value: 'Q'
     }, {
-      text: 'Quarter',
+      text: 'Quarter (formatting)',
       value: 'Qo'
     }, {
+      text: 'Quarter (formatting)',
+      value: 'QQ'
+    }, {
+      text: 'Quarter (formatting)',
+      value: 'QQQ'
+    }, {
+      text: 'Quarter (formatting)',
+      value: 'QQQQ'
+    }, {
+      text: 'Quarter (formatting)',
+      value: 'QQQQQ'
+    }, {
+      text: 'Quarter (stand-alone)',
+      value: 'q'
+    }, {
+      text: 'Quarter (stand-alone)',
+      value: 'qo'
+    }, {
+      text: 'Quarter (stand-alone)',
+      value: 'qq'
+    }, {
+      text: 'Quarter (stand-alone)',
+      value: 'qqq'
+    }, {
+      text: 'Quarter (stand-alone)',
+      value: 'qqqq'
+    }, {
+      text: 'Quarter (stand-alone)',
+      value: 'qqqqq'
+    }, {
+      text: 'Month (formatting)',
+      value: 'M'
+    }, {
+      text: 'Month (formatting)',
+      value: 'Mo'
+    }, {
+      text: 'Month (formatting)',
+      value: 'MM'
+    }, {
+      text: 'Month (formatting)',
+      value: 'MMM'
+    }, {
+      text: 'Month (formatting)',
+      value: 'MMMM'
+    }, {
+      text: 'Month (formatting)',
+      value: 'MMMMM'
+    }, {
+      text: 'Month (stand-alone)',
+      value: 'L'
+    }, {
+      text: 'Month (stand-alone)',
+      value: 'Lo'
+    }, {
+      text: 'Month (stand-alone)',
+      value: 'LL'
+    }, {
+      text: 'Month (stand-alone)',
+      value: 'LLL'
+    }, {
+      text: 'Month (stand-alone)',
+      value: 'LLLL'
+    }, {
+      text: 'Month (stand-alone)',
+      value: 'LLLLL'
+    }, {
+      text: 'Local week of year',
+      value: 'w'
+    }, {
+      text: 'Local week of year',
+      value: 'wo'
+    }, {
+      text: 'Local week of year',
+      value: 'ww'
+    }, {
+      text: 'ISO week of year',
+      value: 'I'
+    }, {
+      text: 'ISO week of year',
+      value: 'Io'
+    }, {
+      text: 'ISO week of year',
+      value: 'II'
+    }, {
       text: 'Day of month',
+      value: 'd'
+    }, {
+      text: 'Day of month',
+      value: 'do'
+    }, {
+      text: 'Day of month',
+      value: 'dd'
+    }, {
+      text: 'Day of year',
       value: 'D'
     }, {
-      text: 'Day of month',
+      text: 'Day of year',
       value: 'Do'
     }, {
-      text: 'Day of month',
+      text: 'Day of year',
       value: 'DD'
     }, {
       text: 'Day of year',
       value: 'DDD'
     }, {
       text: 'Day of year',
-      value: 'DDDo'
-    }, {
-      text: 'Day of year',
       value: 'DDDD'
     }, {
-      text: 'Day of week',
-      value: 'd'
-    }, {
-      text: 'Day of week',
-      value: 'do'
-    }, {
-      text: 'Day of week',
-      value: 'dd'
-    }, {
-      text: 'Day of week',
-      value: 'ddd'
-    }, {
-      text: 'Day of week',
-      value: 'dddd'
-    }, {
-      text: 'Day of ISO week',
+      text: 'Day of week (formatting)',
       value: 'E'
     }, {
-      text: 'ISO week',
-      value: 'W'
+      text: 'Day of week (formatting)',
+      value: 'EEEE'
     }, {
-      text: 'ISO week',
-      value: 'Wo'
+      text: 'Day of week (formatting)',
+      value: 'EEEEE'
     }, {
-      text: 'ISO week',
-      value: 'WW'
+      text: 'Day of week (formatting)',
+      value: 'EEEEEE'
     }, {
-      text: 'Year',
-      value: 'YY'
+      text: 'ISO day of week (formatting)',
+      value: 'i'
     }, {
-      text: 'Year',
-      value: 'YYYY'
+      text: 'ISO day of week (formatting)',
+      value: 'io'
     }, {
-      text: 'ISO week-numbering year',
-      value: 'GG'
+      text: 'ISO day of week (formatting)',
+      value: 'ii'
     }, {
-      text: 'ISO week-numbering year',
-      value: 'GGGG'
+      text: 'ISO day of week (formatting)',
+      value: 'iii'
     }, {
-      text: 'AM/PM',
-      value: 'A'
+      text: 'ISO day of week (formatting)',
+      value: 'iiii'
     }, {
-      text: 'AM/PM',
+      text: 'ISO day of week (formatting)',
+      value: 'iiiii'
+    }, {
+      text: 'ISO day of week (formatting)',
+      value: 'iiiiii'
+    }, {
+      text: 'Local day of week (formatting)',
+      value: 'e'
+    }, {
+      text: 'Local day of week (formatting)',
+      value: 'eo'
+    }, {
+      text: 'Local day of week (formatting)',
+      value: 'ee'
+    }, {
+      text: 'Local day of week (formatting)',
+      value: 'eee'
+    }, {
+      text: 'Local day of week (formatting)',
+      value: 'eeee'
+    }, {
+      text: 'Local day of week (formatting)',
+      value: 'eeeee'
+    }, {
+      text: 'Local day of week (formatting)',
+      value: 'eeeeee'
+    }, {
+      text: 'Local day of week (stand-alone)',
+      value: 'c'
+    }, {
+      text: 'Local day of week (stand-alone)',
+      value: 'co'
+    }, {
+      text: 'Local day of week (stand-alone)',
+      value: 'cc'
+    }, {
+      text: 'Local day of week (stand-alone)',
+      value: 'ccc'
+    }, {
+      text: 'Local day of week (stand-alone)',
+      value: 'cccc'
+    }, {
+      text: 'Local day of week (stand-alone)',
+      value: 'ccccc'
+    }, {
+      text: 'Local day of week (stand-alone)',
+      value: 'cccccc'
+    }, {
+      text: 'AM, PM',
       value: 'a'
     }, {
-      text: 'AM/PM',
-      value: 'aa'
+      text: 'AM, PM',
+      value: 'aaaa'
     }, {
-      text: 'Hour',
-      value: 'H'
+      text: 'AM, PM',
+      value: 'aaaaa'
     }, {
-      text: 'Hour',
-      value: 'HH'
+      text: 'AM, PM, noon, midnight',
+      value: 'b'
     }, {
-      text: 'Hour',
+      text: 'AM, PM, noon, midnight',
+      value: 'bbbb'
+    }, {
+      text: 'AM, PM, noon, midnight',
+      value: 'bbbbb'
+    }, {
+      text: 'Flexible day period',
+      value: 'B'
+    }, {
+      text: 'Flexible day period',
+      value: 'BBBB'
+    }, {
+      text: 'Flexible day period',
+      value: 'BBBBB'
+    }, {
+      text: 'Hour [1-12]',
       value: 'h'
     }, {
-      text: 'Hour',
+      text: 'Hour [1-12]',
+      value: 'ho'
+    }, {
+      text: 'Hour [1-12]',
       value: 'hh'
+    }, {
+      text: 'Hour [0-23]',
+      value: 'H'
+    }, {
+      text: 'Hour [0-23]',
+      value: 'Ho'
+    }, {
+      text: 'Hour [0-23]',
+      value: 'HH'
+    }, {
+      text: 'Hour [0-11]',
+      value: 'K'
+    }, {
+      text: 'Hour [0-11]',
+      value: 'Ko'
+    }, {
+      text: 'Hour [0-11]',
+      value: 'KK'
+    }, {
+      text: 'Hour [1-24]',
+      value: 'k'
+    }, {
+      text: 'Hour [1-24]',
+      value: 'ko'
+    }, {
+      text: 'Hour [1-24]',
+      value: 'kk'
     }, {
       text: 'Minute',
       value: 'm'
+    }, {
+      text: 'Minute',
+      value: 'mo'
     }, {
       text: 'Minute',
       value: 'mm'
@@ -213,28 +417,112 @@ export default class DateOptions extends Vue {
       value: 's'
     }, {
       text: 'Second',
+      value: 'so'
+    }, {
+      text: 'Second',
       value: 'ss'
     }, {
-      text: '1/10 of second',
+      text: 'Fraction of second',
       value: 'S'
     }, {
-      text: '1/100 of second',
+      text: 'Fraction of second',
       value: 'SS'
     }, {
-      text: 'Millisecond',
+      text: 'Fraction of second',
       value: 'SSS'
     }, {
-      text: 'Timezone',
-      value: 'Z'
+      text: 'Fraction of second',
+      value: 'SSSS'
     }, {
-      text: 'Timezone',
-      value: 'ZZ'
-    }, {
-      text: 'Seconds timestamp',
+      text: 'Timezone (ISO-8601 w/ Z)',
       value: 'X'
     }, {
-      text: 'Milliseconds timestamp',
+      text: 'Timezone (ISO-8601 w/ Z)',
+      value: 'XX'
+    }, {
+      text: 'Timezone (ISO-8601 w/ Z)',
+      value: 'XXX'
+    }, {
+      text: 'Timezone (ISO-8601 w/ Z)',
+      value: 'XXXX'
+    }, {
+      text: 'Timezone (ISO-8601 w/ Z)',
+      value: 'XXXXX'
+    }, {
+      text: 'Timezone (ISO-8601 w/o Z)',
       value: 'x'
+    }, {
+      text: 'Timezone (ISO-8601 w/o Z)',
+      value: 'xx'
+    }, {
+      text: 'Timezone (ISO-8601 w/o Z)',
+      value: 'xxx'
+    }, {
+      text: 'Timezone (ISO-8601 w/o Z)',
+      value: 'xxxx'
+    }, {
+      text: 'Timezone (ISO-8601 w/o Z)',
+      value: 'xxxxx'
+    }, {
+      text: 'Timezone (GMT)',
+      value: 'O'
+    }, {
+      text: 'Timezone (GMT)',
+      value: 'OOOO'
+    }, {
+      text: 'Timezone (specific non-locat.)',
+      value: 'z'
+    }, {
+      text: 'Timezone (specific non-locat.)',
+      value: 'zzzz'
+    }, {
+      text: 'Seconds timestamp',
+      value: 't'
+    }, {
+      text: 'Seconds timestamp',
+      value: 'tt'
+    }, {
+      text: 'Milliseconds timestamp',
+      value: 'T'
+    }, {
+      text: 'Milliseconds timestamp',
+      value: 'TT'
+    }, {
+      text: 'Long localized date',
+      value: 'P'
+    }, {
+      text: 'Long localized date',
+      value: 'PP'
+    }, {
+      text: 'Long localized date',
+      value: 'PPP'
+    }, {
+      text: 'Long localized date',
+      value: 'PPPP'
+    }, {
+      text: 'Long localized time',
+      value: 'p'
+    }, {
+      text: 'Long localized time',
+      value: 'pp'
+    }, {
+      text: 'Long localized time',
+      value: 'ppp'
+    }, {
+      text: 'Long localized time',
+      value: 'pppp'
+    }, {
+      text: 'Combination of date and time',
+      value: 'Pp'
+    }, {
+      text: 'Combination of date and time',
+      value: 'PPpp'
+    }, {
+      text: 'Combination of date and time',
+      value: 'PPPppp'
+    }, {
+      text: 'Combination of date and time',
+      value: 'PPPPpppp'
     }].map(({ text, value }) => ({
       text: `${text}: ${formatDate(1111, value)}`,
       value
