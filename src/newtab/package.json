@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@mdi/font": "5.0.45",
-    "date-fns": "2.10.0",
+    "date-fns": "2.11.0",
     "deepmerge": "4.2.2",
     "source-code-pro": "2.30.2",
     "source-sans-pro": "3.6.0",
