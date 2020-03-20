@@ -25,7 +25,7 @@
     "vue": "2.6.11",
     "vue-class-component": "7.2.3",
     "vue-color": "2.7.1",
-    "vue-property-decorator": "8.4.0",
+    "vue-property-decorator": "8.4.1",
     "vue-router": "3.1.6",
     "vuedraggable": "2.23.2",
     "vuetify": "1.5.24",
